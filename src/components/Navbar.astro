@@ -1,0 +1,40 @@
+---
+
+---
+<ul>
+  <li>
+    <a href="/">Home</a>
+  </li>
+  <li>
+    <a href="/build-calculator/">Build Calculator</a>
+  </li>
+  <li>
+    <a href="#" class="disabled">Armor</a>
+  </li>
+  <li>
+    <a href="#" class="disabled">Weapons</a>
+  </li>
+  <li>
+    <a href="#" class="disabled">Links</a>
+  </li>
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+    list-style: none;
+}
+  li > a {
+    text-decoration: none;
+    color: teal;
+
+    &:hover {
+      color: purple;
+    }
+  }
+  .disabled {
+    color: grey !important;
+  }
+</style>
