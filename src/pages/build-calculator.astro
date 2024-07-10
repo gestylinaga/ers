@@ -7,20 +7,22 @@ import Navbar from "../components/Navbar.astro";
  <Navbar />
 
  <main>
-   <div>
-     <label for="classes">Starting Class:</label>
-     <select name="classes" id="classes" onchange="updateView()">
-       <option value="confessor">Confessor</option>
-       <option value="vagabond">Vagabond</option>
-       <option value="samurai">Samurai</option>
-       <option value="prisoner">Prisoner</option>
-       <option value="warrior">Warrior</option>
-       <option value="hero">Hero</option>
-       <option value="prophet">Prophet</option>
-       <option value="astrologer">Astrologer</option>
-       <option value="bandit">Bandit</option>
-       <option value="wretch">Wretch</option>
-     </select>
+   <div id="class-selector-and-image">
+     <div>
+       <label for="classes">Starting Class:</label>
+       <select name="classes" id="classes" onchange="updateView()">
+         <option value="confessor">Confessor</option>
+         <option value="vagabond">Vagabond</option>
+         <option value="samurai">Samurai</option>
+         <option value="prisoner">Prisoner</option>
+         <option value="warrior">Warrior</option>
+         <option value="hero">Hero</option>
+         <option value="prophet">Prophet</option>
+         <option value="astrologer">Astrologer</option>
+         <option value="bandit">Bandit</option>
+         <option value="wretch">Wretch</option>
+       </select>
+     </div>
 
      <div id="display">
        <img src="/imgs/confessor.webp" id="selected" alt="Class Image">
@@ -92,6 +94,7 @@ function populateStats(classStats: any) {
   }
 }
 
+/*
 function getImage(opt: string) {
   let img = new Image();
   let selectedImg = img.src = `/ers/imgs/${opt}.webp`;
@@ -110,6 +113,7 @@ function updateView() {
 window.onload = updateView;
 document.getElementById("classes").onchange = updateView;
 
+*/
 </script>
 
 <style>
@@ -117,6 +121,12 @@ document.getElementById("classes").onchange = updateView;
     display: flex;
     gap: 1rem;
     padding-top: 3rem;
+  }
+  #class-selector-and-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #selected {
