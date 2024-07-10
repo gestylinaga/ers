@@ -16,6 +16,7 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
+    "prettify": "^0.1.7",
     "sass": "^1.77.7"
   }
 }
