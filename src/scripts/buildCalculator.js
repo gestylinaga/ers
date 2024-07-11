@@ -1,6 +1,13 @@
 // ers | Build Calculator
 
 const tableRows = document.querySelectorAll("tr");
+const statNamesRaw = document.querySelectorAll("th");
+
+// Creates Table of Stat Names (in order)
+let statNames = [];
+for (let name of statNamesRaw) {
+  statNames.push(name.innerText.toLowerCase());
+}
 
 // Class List with Stats Spread
 const classList = {
@@ -29,7 +36,7 @@ function populateStats(classStats) {
   let i = 0;
   for (let row of tableRows) {
     const newStat = document.createElement("td");
-    newStat.setAttribute("id", "statNum");
+    newStat.setAttribute("id", `starting-${statNames[i]}`);
     newStat.innerHTML = classStats[i];
     newStat.style.textAlign = "center";
     row.appendChild(newStat);
@@ -44,6 +51,7 @@ function getImage(opt) {
 }
 
 function createOptBoxes() {
+  let i = 0;
   for (let row of tableRows) {
     const boxDiv = document.createElement("div");
     boxDiv.style.paddingInline = "1rem";
@@ -57,15 +65,18 @@ function createOptBoxes() {
     numInput.setAttribute("min", "0");
     numInput.setAttribute("max", "999");
     numInput.setAttribute("value", "0");
+    numInput.setAttribute("id", `${statNames[i]}-modifier`);
     numInput.style.paddingBlock = ".5rem";
     numInput.style.textAlign = "center";
 
     numInput.addEventListener("change", ()=> {
       console.log("change")
+      // TODO: handle number changes (new function)
     })
 
     boxDiv.appendChild(numInput);
     row.appendChild(boxDiv);
+    i++;
   }
 }
 

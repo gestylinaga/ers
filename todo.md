@@ -2,9 +2,11 @@
 ## Build Calculator
 - [x] Starting Rune Level
 - [x] Interactive Stat Table (reflects selected class)
-  - [ ] stats change with arrows
-  - [ ] stats change with text field
-- [ ] Rune level goes up on table change
+  - [ ] Stat Totals Column
+  - [ ] Stat Totals change with arrows
+  - [ ] Stat Totals change with text field
+- [ ] Rune level goes up on any table change
+
 - [ ] Suggested PVP level breakpoints
 
 ## Armor 
