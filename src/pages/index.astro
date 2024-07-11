@@ -3,7 +3,22 @@ import MainLayout from "../layouts/MainLayout.astro";
 import HomeMenu from "../components/HomeMenu.astro";
 ---
 <MainLayout title="ers | Elden Ring Stuff" >
-	<h1> ers </h1>
-	<h2> Elden Ring Stuff </h2>
+<a href="/ers/" class="brand">
+	<h1>Elden Ring Stuff</h1>
+</a>
 	<HomeMenu />
 </MainLayout>
+
+<style>
+	.brand {
+		text-decoration: none;
+		color: teal;
+		&:hover {
+			color: white;
+		}
+	}
+
+	h1 {
+		font-size: 4rem;
+	}
+</style>

@@ -1,10 +1,8 @@
 ---
 
 ---
+<h1 class="brand"><a href="/ers/">ers</a></h1>
 <ul>
-  <li>
-    <a href="/ers/">Home</a>
-  </li>
   <li>
     <a href="/ers/build-calculator/">Build Calculator</a>
   </li>
@@ -20,10 +18,18 @@
 </ul>
 
 <style>
+  .brand {
+    & > a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: teal;
+      }
+    }
+  }
   ul {
     display: flex;
     gap: 2rem;
-    padding-top: 1rem;
     list-style: none;
 }
   li > a {
