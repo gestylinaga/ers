@@ -1,5 +1,7 @@
 // ers | Build Calculator
 
+const tableRows = document.querySelectorAll("tr");
+
 // Class List with Stats Spread
 const classList = {
   "confessor": [10, 10, 13, 10, 12, 12, 9, 14, 9],
@@ -15,15 +17,19 @@ const classList = {
 }
 
 function clearStats() {
+  // Clear Starting Stats
   let existingStats = document.querySelectorAll("td");
   existingStats.forEach(e => e.remove());
+  // Clear Opt Box Stats
+  let existingOptBoxes = document.querySelectorAll("#optBox");
+  existingOptBoxes.forEach(e => e.remove());
 }
 
 function populateStats(classStats) {
-  let tableRows = document.querySelectorAll("tr");
   let i = 0;
   for (let row of tableRows) {
     const newStat = document.createElement("td");
+    newStat.setAttribute("id", "statNum");
     newStat.innerHTML = classStats[i];
     row.appendChild(newStat);
     i++;
@@ -36,11 +42,36 @@ function getImage(opt) {
   document.getElementById("selected").src = selectedImg;
 }
 
+function createOptBoxes() {
+  for (let row of tableRows) {
+    const boxDiv = document.createElement("div");
+    boxDiv.style.paddingInline = "1rem";
+    boxDiv.style.display = "flex";
+    boxDiv.style.justifyContent = "center";
+    boxDiv.setAttribute("id", "optBox");
+
+    const numInput = document.createElement("input");
+    numInput.setAttribute("size", "5");
+    numInput.setAttribute("type", "number");
+    numInput.setAttribute("min", "0");
+    numInput.setAttribute("max", "999");
+    numInput.setAttribute("placeholder", "0");
+    numInput.style.paddingBlock = ".5rem";
+    numInput.addEventListener("change", ()=> {
+      console.log("change")
+    })
+
+    boxDiv.appendChild(numInput);
+    row.appendChild(boxDiv);
+  }
+}
+
 function updateView() {
   let opt = document.getElementById("classes").value;
   getImage(opt);
   clearStats();
   populateStats(classList[opt])
+  createOptBoxes();
 }
 
 // Update View on initial load & class change
