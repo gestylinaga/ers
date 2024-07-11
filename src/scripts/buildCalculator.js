@@ -31,6 +31,7 @@ function populateStats(classStats) {
     const newStat = document.createElement("td");
     newStat.setAttribute("id", "statNum");
     newStat.innerHTML = classStats[i];
+    newStat.style.textAlign = "center";
     row.appendChild(newStat);
     i++;
   }
@@ -51,12 +52,14 @@ function createOptBoxes() {
     boxDiv.setAttribute("id", "optBox");
 
     const numInput = document.createElement("input");
-    numInput.setAttribute("size", "5");
+    numInput.setAttribute("size", "3");
     numInput.setAttribute("type", "number");
     numInput.setAttribute("min", "0");
     numInput.setAttribute("max", "999");
-    numInput.setAttribute("placeholder", "0");
+    numInput.setAttribute("value", "0");
     numInput.style.paddingBlock = ".5rem";
+    numInput.style.textAlign = "center";
+
     numInput.addEventListener("change", ()=> {
       console.log("change")
     })
