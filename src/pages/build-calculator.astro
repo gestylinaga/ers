@@ -3,63 +3,65 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 <MainLayout title="Build Calculator | ers ">
- <Navbar />
+  <Navbar />
 
- <main>
-   <div id="class-selector-and-image">
-     <div>
-       <label for="classes">Starting Class:</label>
-       <select name="classes" id="classes" onchange="updateView()">
-         <option value="confessor">Confessor</option>
-         <option value="vagabond">Vagabond</option>
-         <option value="samurai">Samurai</option>
-         <option value="prisoner">Prisoner</option>
-         <option value="warrior">Warrior</option>
-         <option value="hero">Hero</option>
-         <option value="prophet">Prophet</option>
-         <option value="astrologer">Astrologer</option>
-         <option value="bandit">Bandit</option>
-         <option value="wretch">Wretch</option>
-       </select>
-     </div>
+  <main>
+    <div id="class-selector-and-image">
+      <div>
+        <label for="classes">Starting Class:</label>
+        <select name="classes" id="classes" onchange="updateView()">
+          <option value="confessor">Confessor</option>
+          <option value="vagabond">Vagabond</option>
+          <option value="samurai">Samurai</option>
+          <option value="prisoner">Prisoner</option>
+          <option value="warrior">Warrior</option>
+          <option value="hero">Hero</option>
+          <option value="prophet">Prophet</option>
+          <option value="astrologer">Astrologer</option>
+          <option value="bandit">Bandit</option>
+          <option value="wretch">Wretch</option>
+        </select>
+      </div>
 
-     <div id="display">
-       <img src="/imgs/confessor.webp" id="selected" alt="Class Image">
-     </div>
+      <div id="display">
+        <img src="/imgs/confessor.webp" id="selected" alt="Class Image">
+      </div>
 
-   </div>
-   <div id="statTable">
-     <table>
-       <tr>
-         <th>Level</th>
-       </tr>
-       <tr>
-         <th>Vigor</th>
-       </tr>
-       <tr>
-         <th>Mind</th>
-       </tr>
-       <tr>
-         <th>Endurance</th>
-       </tr>
-       <tr>
-         <th>Strength</th>
-       </tr>
-       <tr>
-         <th>Dexterity</th>
-       </tr>
-       <tr>
-         <th>Intelligence</th>
-       </tr>
-       <tr>
-         <th>Faith</th>
-       </tr>
-       <tr>
-         <th>Arcane</th>
-       </tr>
-     </table>
-   </div>
- </main>
+    </div>
+    <div id="statTable">
+      <table>
+        <tr>
+          <th>Vigor</th>
+        </tr>
+        <tr>
+          <th>Mind</th>
+        </tr>
+        <tr>
+          <th>Endurance</th>
+        </tr>
+        <tr>
+          <th>Strength</th>
+        </tr>
+        <tr>
+          <th>Dexterity</th>
+        </tr>
+        <tr>
+          <th>Intelligence</th>
+        </tr>
+        <tr>
+          <th>Faith</th>
+        </tr>
+        <tr>
+          <th>Arcane</th>
+        </tr>
+
+        <tr>
+          <th>Level</th>
+        </tr>
+
+      </table>
+    </div>
+  </main>
 </MainLayout>
 <script src="../scripts/buildCalculator.js"></script>
 
@@ -97,5 +99,9 @@ import Navbar from "../components/Navbar.astro";
 
   td {
     text-align: center;
+  }
+
+  hr {
+    width: 100%;
   }
 </style>
