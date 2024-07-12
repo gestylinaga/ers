@@ -39,6 +39,7 @@ function populateStats(classStats) {
     newStat.setAttribute("id", `starting-${statNames[i]}`);
     newStat.innerHTML = classStats[i];
     newStat.style.textAlign = "center";
+    newStat.style.paddingInline = "1rem";
     row.appendChild(newStat);
     i++;
   }
@@ -48,6 +49,67 @@ function getImage(opt) {
   let img = new Image();
   let selectedImg = img.src = `/ers/imgs/${opt}.webp`;
   document.getElementById("selected").src = selectedImg;
+}
+
+function calcTotals() {
+  // Create Totals Columns
+  let i = 0;
+  for (let row of tableRows) {
+    const newTotal = document.createElement("td");
+
+    // Parsing correct values to stats
+    let stat = statNames[i];
+    let starting = `starting-${stat}`;
+    let modifier = `${stat}-modifier`;
+    let a = parseInt(document.getElementById(starting).innerText);
+    let b = parseInt(document.getElementById(modifier).value);
+
+    newTotal.innerHTML = a + b;
+    newTotal.setAttribute("id", `${stat}-total`);
+    newTotal.style.textAlign = "center";
+    newTotal.style.paddingInline = "1rem";
+
+    row.appendChild(newTotal);
+    i++
+  }
+}
+
+function adjustRL() {
+  let totalStats = 0;
+  // Add up stat modifier values
+  for (let stat of document.querySelectorAll("input")) {
+    totalStats += parseInt(stat.value);
+  }
+  // Subtract level-modifier value
+  totalStats -= parseInt(document.getElementById("level-modifier").value);
+  console.log(totalStats);
+
+  // Adjust Level Modifier by total
+  let rlModifier = document.getElementById("level-modifier");
+  rlModifier.value = parseInt(totalStats);
+
+  // manually adjust level-total element
+  const startingLevel = parseInt(document.getElementById("starting-level").innerHTML);
+  const currentValue = parseInt(document.getElementById("level-modifier").value);
+  const totalLevel = document.getElementById("level-total");
+  totalLevel.innerHTML = startingLevel + currentValue;
+
+}
+
+function handleStatChange() {
+  // Deletes Old Totals
+  let i = 0;
+  for (let stat of statNames) {
+    let oldStat = document.getElementById(`${stat}-total`);
+    oldStat.remove();
+    i++;
+  }
+
+  // calc new Totals
+  calcTotals();
+
+  // adjustRL
+  adjustRL();
 }
 
 function createOptBoxes() {
@@ -70,8 +132,7 @@ function createOptBoxes() {
     numInput.style.textAlign = "center";
 
     numInput.addEventListener("change", ()=> {
-      console.log("change")
-      // TODO: handle number changes (new function)
+      handleStatChange();
     })
 
     boxDiv.appendChild(numInput);
@@ -86,6 +147,7 @@ function updateView() {
   clearStats();
   populateStats(classList[opt])
   createOptBoxes();
+  calcTotals();
 }
 
 // Update View on initial load & class change
