@@ -21,32 +21,40 @@ import Navbar from "../components/Navbar.astro";
       <p>For example: Leveling Strength from 80 to 82, is <strong>less</strong>
       efficient than leaving it at 80, and using those 2 points elsewhere.
       </p>
+      <p style="padding-top: 1rem;">In Elden Ring, the <em>hard</em> cap for <strong>all</strong> stats are 
+      99.
+      </p>
+      <p>Breakpoints are known as <em>soft</em> caps, where leveling past them, 
+      results in diminishing returns.
+      </p>
+    </section>
+
+    <section class="flex-col">
+      <h3>Stat Breakpoints/ Soft-Caps</h3>
+      <ul class="cap-list">
+        <li><strong>Vigor</strong> - 40, 60</li>
+        <li><strong>Mind</strong> - 50, 60</li>
+        <li><strong>Endurance</strong> - 15, 30, 50</li>
+        <li><strong>Strength</strong> - 16, 18, 20, 30, 45, 45, 60, 80</li>
+        <li><strong>Dexterity</strong> - 16, 18, 20, 30, 45, 45, 60, 80</li>
+        <li><strong>Intelligence</strong> - 20, 30, 45, 50, 60, 80</li>
+        <li><strong>Faith</strong> - 20, 30, 45, 50, 60, 80</li>
+        <li><strong>Arcane</strong> - 18, 20, 30, 45, 60, 80</li>
+      </ul>
     </section>
 
     <section class="split-section">
+
       <div class="flex-col">
-        <h3>General Build Advice</h3>
+        <h3>PVP Rune Level Breakpoints</h3>
         <ul>
-          <li>Get Vigor to 60. Just get it to 60. Seriously.</li>
-          <li>10 Mind is fine for melee users</li>
-          <li>~30 Endurance is fine for most builds</li>
-          <li>Pick 1 damage Stat to max:</li>
-            <ul>
-              <li>Strength</li>
-              <li>Dexterity</li>
-              <li>Intelligence</li>
-              <li>Faith</li>
-              <li>Arcane</li>
-            </ul>
-          <li>After RL125-150, you can choose a second damage stat:</li>
-            <ul>
-              <li>Strength/Faith (good heals & self-buffs)</li>
-              <li>Dexterity/Arcane (good bleed damage/weapons)</li>
-              <li>Intelligence/Faith (full caster)</li>
-              <li>Strength/Dexterity (Quality)</li>
-            </ul>
+          <li>125 - Meta rune level for PVP arena duels</li>
+          <li>150 - Meta rune level for invasions/general PVP</li>
+          <li>166 - Able to reach both 150 and 200 rune level brackets</li>
+          <li>200 - Popular out-of-meta rune level for PVP (more casual)</li>
         </ul>
       </div>
+
       <div class="flex-col">
         <h3>Endgame Rune Level</h3>
         <p>Changes depending on:</p>
@@ -57,6 +65,9 @@ import Navbar from "../components/Navbar.astro";
         </ul>
         <p>Typical rune level around endgame is around <strong>130-180</strong>.</p>
       </div>
+    </section>
+
+    <section>
     </section>
   </main>
 </MainLayout>
@@ -116,5 +127,8 @@ import Navbar from "../components/Navbar.astro";
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .cap-list {
+    font-size: 1.5rem;
   }
 </style>
