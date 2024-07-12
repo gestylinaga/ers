@@ -18,12 +18,23 @@
 </ul>
 
 <style>
+  * {
+    --text: #e0def4;
+    --subtle: #908caa;
+    --love: #eb6f92;
+    --gold: #f6c177;
+    --rose: #ebbcba;
+    --pine: #31748f;
+    --foam: #9ccfd8;
+    --iris: #c4a7e7;
+  }
+
   .brand {
     & > a {
-      color: white;
+      color: var(--rose);
       text-decoration: none;
       &:hover {
-        color: teal;
+        color: var(--pine);
       }
     }
   }
@@ -34,13 +45,15 @@
 }
   li > a {
     text-decoration: none;
-    color: teal;
+    color: var(--pine);
 
     &:hover {
-      color: purple;
+      color: var(--iris);
     }
   }
+
   .disabled {
-    color: grey !important;
+    color: var(--subtle) !important;
   }
+
 </style>

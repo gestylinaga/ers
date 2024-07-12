@@ -10,11 +10,22 @@ import HomeMenu from "../components/HomeMenu.astro";
 </MainLayout>
 
 <style>
+  * {
+    --text: #e0def4;
+    --subtle: #908caa;
+    --love: #eb6f92;
+    --gold: #f6c177;
+    --rose: #ebbcba;
+    --pine: #31748f;
+    --foam: #9ccfd8;
+    --iris: #c4a7e7;
+  }
+
 	.brand {
 		text-decoration: none;
-		color: teal;
+		color: var(--rose);
 		&:hover {
-			color: white;
+			color: var(--iris);
 		}
 	}
 

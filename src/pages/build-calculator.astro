@@ -26,8 +26,8 @@ import Navbar from "../components/Navbar.astro";
       <div id="display">
         <img src="/ers/imgs/confessor.webp" id="selected" alt="Class Image">
       </div>
-
     </div>
+
     <div id="statTable">
       <table>
         <tr>
@@ -55,17 +55,31 @@ import Navbar from "../components/Navbar.astro";
           <th>Arcane</th>
         </tr>
 
-        <tr>
-          <th>Level</th>
-        </tr>
+        <tfoot>
+          <tr>
+            <th>Level</th>
+          </tr>
+        </tfoot>
 
       </table>
     </div>
   </main>
 </MainLayout>
+
 <script src="../scripts/buildCalculator.js"></script>
 
 <style>
+  * {
+    --text: #e0def4;
+    --subtle: #908caa;
+    --love: #eb6f92;
+    --gold: #f6c177;
+    --rose: #ebbcba;
+    --pine: #31748f;
+    --foam: #9ccfd8;
+    --iris: #c4a7e7;
+  }
+
   main {
     display: flex;
     gap: 1rem;
@@ -95,13 +109,12 @@ import Navbar from "../components/Navbar.astro";
     text-align: right;
     padding-inline: 1rem;
     padding-block: .5rem;
+    color: var(--foam);
   }
 
-  td {
-    text-align: center;
+  tfoot {
+    color: var(--text);
+    background-color: var(--pine);
   }
 
-  hr {
-    width: 100%;
-  }
 </style>
