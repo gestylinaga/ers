@@ -1,5 +1,6 @@
 // ers | Build Calculator
 
+// Grabs Existing Table Elements (rows & headers)
 const tableRows = document.querySelectorAll("tr");
 const statNamesRaw = document.querySelectorAll("th");
 
@@ -23,6 +24,7 @@ const classList = {
   "wretch": [10, 10, 10, 10, 10, 10, 10, 10, 1]
 }
 
+// Clears First 2 Table Rows (on class change)
 function clearStats() {
   // Clear Starting Stats
   let existingStats = document.querySelectorAll("td");
@@ -32,6 +34,7 @@ function clearStats() {
   existingOptBoxes.forEach(e => e.remove());
 }
 
+// Creates Stat Number Column (with selected class)
 function populateStats(classStats) {
   let i = 0;
   for (let row of tableRows) {
@@ -45,35 +48,40 @@ function populateStats(classStats) {
   }
 }
 
+// Resets Class Image (on class change)
 function getImage(opt) {
   let img = new Image();
   let selectedImg = img.src = `/ers/imgs/${opt}.webp`;
   document.getElementById("selected").src = selectedImg;
 }
 
+// Calculates Final Column Totals
 function calcTotals() {
   // Create Totals Columns
   let i = 0;
   for (let row of tableRows) {
     const newTotal = document.createElement("td");
 
-    // Parsing correct values to stats
+    // Parsing correct values to corresponding stats
     let stat = statNames[i];
     let starting = `starting-${stat}`;
     let modifier = `${stat}-modifier`;
     let a = parseInt(document.getElementById(starting).innerText);
     let b = parseInt(document.getElementById(modifier).value);
 
+    // Calculating / displaying new stat total
     newTotal.innerHTML = a + b;
     newTotal.setAttribute("id", `${stat}-total`);
     newTotal.style.textAlign = "center";
     newTotal.style.paddingInline = "1rem";
 
+    // Add updated total to row
     row.appendChild(newTotal);
     i++
   }
 }
 
+// Manually Adjusts "Level" Stat / Row
 function adjustRL() {
   let totalStats = 0;
   // Add up stat modifier values
@@ -96,31 +104,33 @@ function adjustRL() {
 
 }
 
+// Triggers on Opt Box interaction
 function handleStatChange() {
   // Deletes Old Totals
-  let i = 0;
   for (let stat of statNames) {
     let oldStat = document.getElementById(`${stat}-total`);
     oldStat.remove();
-    i++;
   }
 
-  // calc new Totals
+  // Calculate New Totals
   calcTotals();
-
-  // adjustRL
+  // Adust Rune Level Stat Manually
   adjustRL();
 }
 
+// Creates Table's Individual Opt Boxes
 function createOptBoxes() {
   let i = 0;
+  // Create an Option Box on Each Table Row
   for (let row of tableRows) {
+    // Create container div
     const boxDiv = document.createElement("div");
     boxDiv.style.paddingInline = "1rem";
     boxDiv.style.display = "flex";
     boxDiv.style.justifyContent = "center";
     boxDiv.setAttribute("id", "optBox");
 
+    // Create / Style each input
     const numInput = document.createElement("input");
     numInput.setAttribute("size", "3");
     numInput.setAttribute("type", "number");
@@ -135,12 +145,14 @@ function createOptBoxes() {
       handleStatChange();
     })
 
+    // Add input to container, then container to row
     boxDiv.appendChild(numInput);
     row.appendChild(boxDiv);
     i++;
   }
 }
 
+// Updates Entire Display on Class Change
 function updateView() {
   let opt = document.getElementById("classes").value;
   getImage(opt);

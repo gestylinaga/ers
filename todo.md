@@ -1,5 +1,5 @@
 # ers TODO
-## Build Calculator
+## Build Calculator Page
 - [x] Starting Rune Level
 - [x] Interactive Stat Table (reflects selected class)
   - [x] Stat Totals Column
@@ -8,21 +8,36 @@
 - [x] Rune level goes up on any table change
 
 - [ ] Suggested PVP level breakpoints
+- [ ] Stat Breakpoints
+  - Vigor 40/60
+  - Strength (x1.5 two-handed) 40/54 is actually 60/81
+  - Dexterity 60/80
 
-## Armor 
+## Armor Page
 - Poise Breakpoints
   - 51 daggers
-  - 68
-  - 88
+  - 68 straight swords?
+  - 88 greatswords?
 
-## Weapons
-  - Images
-  - Wiki Links
-  - Locations
+- Equipment that helps:
+  - Bullgoat Talisman
+  - Wolf's Head Imp Statue Helmet
 
-## Links
+## Weapons Page
+- Images
+- Wiki Links
+- Locations
+
+- PVP
+  - Claymore
+- PVE
+  - Blasphemous Blade
+
+## Links Page
 - Wiki
 
+---
+---
 ---
 
 # Class Stat Info
