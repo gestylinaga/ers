@@ -1,0 +1,120 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+<MainLayout title="Stat Breakpoints | ers">
+  <Navbar />
+  <main class="flex-col">
+    <h2>Stat Breakpoints</h2>
+
+    <section>
+      <h3>What are breakpoints?</h3>
+      <p>Breakpoints are points in stat allocations in which leveling past 
+      certain numbers end in 
+      <a href="https://en.wikipedia.org/wiki/Diminishing_returns">
+        <em>Diminishing Returns</em>
+      </a>.
+      </p>
+      <p> This means that when making an <strong>"optimal/efficient"</strong> 
+      build, you should take these points into account.
+      </p>
+      <p>For example: Leveling Strength from 80 to 82, is <strong>less</strong>
+      efficient than leaving it at 80, and using those 2 points elsewhere.
+      </p>
+    </section>
+
+    <section class="split-section">
+      <div class="flex-col">
+        <h3>General Build Advice</h3>
+        <ul>
+          <li>Get Vigor to 60. Just get it to 60. Seriously.</li>
+          <li>10 Mind is fine for melee users</li>
+          <li>~30 Endurance is fine for most builds</li>
+          <li>Pick 1 damage Stat to max:</li>
+            <ul>
+              <li>Strength</li>
+              <li>Dexterity</li>
+              <li>Intelligence</li>
+              <li>Faith</li>
+              <li>Arcane</li>
+            </ul>
+          <li>After RL125-150, you can choose a second damage stat:</li>
+            <ul>
+              <li>Strength/Faith (good heals & self-buffs)</li>
+              <li>Dexterity/Arcane (good bleed damage/weapons)</li>
+              <li>Intelligence/Faith (full caster)</li>
+              <li>Strength/Dexterity (Quality)</li>
+            </ul>
+        </ul>
+      </div>
+      <div class="flex-col">
+        <h3>Endgame Rune Level</h3>
+        <p>Changes depending on:</p>
+        <ul>
+          <li>How much side (optional) content you do</li>
+          <li>How much you farm for runes</li>
+          <li>How much you die</li>
+        </ul>
+        <p>Typical rune level around endgame is around <strong>130-180</strong>.</p>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  * {
+    --bg: #16141f;
+    --muted: #6e6a86;
+    --subtle: #908caa;
+    --text: #e0def4;
+    --love: #eb6f92;
+    --gold: #f6c177;
+    --rose: #ebbcba;
+    --pine: #31748f;
+    --foam: #9ccfd8;
+    --iris: #c4a7e7;
+  }
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  h2 {
+    color: var(--rose);
+    font-size: 3rem;
+  }
+  h3 {
+    color: var(--love);
+    font-size: 2rem;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+  }
+  .split-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  p {
+    color: var(--text);
+    font-family: 1.5rem;
+  }
+  a {
+    color: var(--foam);
+    text-decoration: none;
+  }
+  ul {
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
