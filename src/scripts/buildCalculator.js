@@ -91,7 +91,7 @@ function adjustRL() {
   }
   // Subtract level-modifier value
   totalStats -= parseInt(document.getElementById("level-modifier").value);
-  console.log(totalStats);
+  //console.log(totalStats);
 
   // Adjust Level Modifier by total
   let rlModifier = document.getElementById("level-modifier");
@@ -162,6 +162,36 @@ function updateView() {
   createOptBoxes();
   calcTotals();
 }
+
+// Save/Load Builds
+const saveBtn = document.getElementById("saveButton");
+const loadBtn = document.getElementById("loadButton");
+
+saveBtn.addEventListener("click", ()=> {
+  console.log("save");
+
+  // Append class-name into array
+  let currentBuild = [];
+  let className = document.getElementById("classes").value;
+  currentBuild.push(className);
+
+  // Append stat modifiers into array
+  const modifiers = document.querySelectorAll("input");
+  for (let mod of modifiers) {
+    currentBuild.push(parseInt(mod.value));
+  }
+
+  console.log(currentBuild);
+
+  // TODO: Save array to localStorage
+})
+
+loadBtn.addEventListener("click", ()=> {
+  console.log("load");
+  // TODO:
+  // - check localStorage for existing builds
+  // - set values to array
+})
 
 // Update View on initial load & class change
 window.onload = updateView;

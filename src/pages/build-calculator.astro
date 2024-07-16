@@ -66,6 +66,10 @@ import Navbar from "../components/Navbar.astro";
         </tfoot>
 
       </table>
+      <div>
+        <button class="menuButton" id="saveButton">Save Build</button>
+        <button class="menuButton" id="loadButton">Load Build</button>
+      </div>
     </div>
   </main>
 </MainLayout>
@@ -124,6 +128,11 @@ import Navbar from "../components/Navbar.astro";
   tfoot {
     color: var(--text);
     background-color: var(--pine);
+  }
+
+  .menuButton {
+    margin-top: 1rem;
+    padding: .5rem;
   }
 
 </style>
