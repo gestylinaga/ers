@@ -73,6 +73,7 @@ function calcTotals() {
     newTotal.innerHTML = a + b;
     newTotal.setAttribute("id", `${stat}-total`);
     newTotal.style.textAlign = "center";
+    newTotal.style.color = "#f6c177";
     newTotal.style.paddingInline = "1rem";
 
     // Add updated total to row

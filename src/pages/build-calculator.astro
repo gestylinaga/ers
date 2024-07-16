@@ -30,6 +30,10 @@ import Navbar from "../components/Navbar.astro";
 
     <div id="statTable">
       <table>
+        <colgroup>
+          <col span="3" class="default" />
+          <col span="1" class="results" />
+        </colgroup>
         <tr>
           <th>Vigor</th>
         </tr>
@@ -70,6 +74,7 @@ import Navbar from "../components/Navbar.astro";
 
 <style>
   * {
+    --bg: #16141f;
     --text: #e0def4;
     --subtle: #908caa;
     --love: #eb6f92;
@@ -103,6 +108,10 @@ import Navbar from "../components/Navbar.astro";
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .results {
+    background-color: var(--pine);
   }
 
   th {
