@@ -163,12 +163,44 @@ function updateView() {
   calcTotals();
 }
 
+// Checks for Existing Builds
+function buildsExist() {
+  const build1 = localStorage.getItem("ersBuild");
+  if (build1 != null) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// Loads a Saved Build
+function loadBuild(savedBuild) {
+  let buildList = savedBuild.split(",");
+  // Set Saved Class
+  const classSelector = document.querySelectorAll("option");
+  for (let opt of classSelector) {
+    if (opt.value == buildList[0]) {
+      opt.selected = true;
+    }
+  }
+
+  updateView();
+
+  // Set Stat Values
+  const modifiers = document.querySelectorAll("input");
+  let i = 1;
+  for (let mod of modifiers) {
+    mod.value = parseInt(buildList[i]);
+    i++;
+  }
+  handleStatChange();
+}
+
 // Save/Load Builds
 const saveBtn = document.getElementById("saveButton");
 const loadBtn = document.getElementById("loadButton");
 
 saveBtn.addEventListener("click", ()=> {
-  console.log("save");
 
   // Append class-name into array
   let currentBuild = [];
@@ -181,16 +213,25 @@ saveBtn.addEventListener("click", ()=> {
     currentBuild.push(parseInt(mod.value));
   }
 
-  console.log(currentBuild);
-
-  // TODO: Save array to localStorage
+  // Saves array to localStorage
+  if (!buildsExist()) {
+    localStorage.setItem("ersBuild", currentBuild);
+    alert("Build Saved");
+  } else {
+    alert("A Build Already Exists");
+    // TODO: option to overwrite/cancel
+  }
 })
 
 loadBtn.addEventListener("click", ()=> {
-  console.log("load");
-  // TODO:
-  // - check localStorage for existing builds
-  // - set values to array
+  // Checks localStorage for existing builds
+  if (!buildsExist()) {
+    alert("No Builds Saved");
+  } else {
+  // Sets values to array
+    const savedBuild = localStorage.getItem("ersBuild");
+    loadBuild(savedBuild);
+  }
 })
 
 // Update View on initial load & class change
